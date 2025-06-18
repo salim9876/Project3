@@ -2,7 +2,7 @@
 File Hider
 # 🔐 File Hider
 
-A secure Java-based application that allows users to **hide/unhide personal files or folders** using a clean UI with OTP-based login verification. It ensures privacy and adds an extra layer of protection for sensitive data.
+A secure Java-based application that allows users to **hide/unhide personal files or folders** using  with OTP-based login verification. It ensures privacy and adds an extra layer of protection for sensitive data.
 
 ![Screenshot](proj_3.jpg)
 
