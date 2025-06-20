@@ -26,7 +26,6 @@ This is a secure file management backend application built using **Java**, **JDB
 - **JavaMail API** (SMTP for Gmail)
 - **Maven** (for dependency management)
 
--
 ## 🗂️ Project Structure
 src/
 ├── dao/
@@ -39,16 +38,11 @@ src/
 │ └── Welcome.java, UserView.java
 └── Main.java
 
-pgsql
-Copy
-Edit
 
-
----
 
 ## 🧾 Database Schema
 
-```sql
+sql
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
