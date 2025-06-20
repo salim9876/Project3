@@ -1,81 +1,99 @@
-# Project3
-File Hider
-# 🔐 File Hider
 
-A secure Java-based application that allows users to **hide/unhide personal files or folders** using  with OTP-based login verification. It ensures privacy and adds an extra layer of protection for sensitive data.
 
-![Screenshot](proj_3.jpg)
+# 🔐 Secure File Hider - Backend Application
+
+This is a secure file management backend application built using **Java**, **JDBC**, and **MySQL**, allowing users to **hide/unhide files** securely. It features **OTP-based email verification** for user login/signup and manages file visibility based on authenticated sessions.
 
 ---
 
 ## 🚀 Features
 
-- 🔑 **OTP-based User Login**  
-- 🔐 **Hide and Unhide Files/Folders**  
-- 💽 **Secure File Encryption Handling**  
-- 📂 **Drag-and-Drop File Support**  
-- 📧 **OTP sent via Email using JavaMail API**  
-- 🖥️ **Java Swing GUI for Easy Use**
+- ✅ **User Registration & Login** with OTP verification via email
+- 🔐 **Hide and Unhide Files** linked to a user's email
+- 📬 OTP system implemented using **JavaMail API**
+- 🗃️ **MySQL Database** for user and file information
+- ⚙️ Console-based interactive UI
+- 🧩 Modular design using DAO-Service-Model architecture
+- 🔁 Continuous loop until user exits (Menu-driven app)
 
 ---
 
-## 🧰 Tech Stack
+## 🛠️ Technologies Used
 
-- Java 8+
-- Maven
-- MySQL
-- JDBC
-- Java Swing
-- JavaMail API (OTP Emailing)
-- Spring Boot
+- **Java 17**
+- **JDBC (without JPA)**
+- **MySQL**
+- **JavaMail API** (SMTP for Gmail)
+- **Maven** (for dependency management)
+
+-
+## 🗂️ Project Structure
+src/
+├── dao/
+│ └── UserDAO.java, DataDAO.java
+├── model/
+│ └── User.java, Data.java
+├── service/
+│ └── SendOTPService.java, GenerateOTP.java, UserService.java
+├── views/
+│ └── Welcome.java, UserView.java
+└── Main.java
+
+pgsql
+Copy
+Edit
+
+
 ---
 
-## 📁 Project Structure
-File Hider/
-├── pom.xml
-├── src/
-│ ├── dao/
-│ ├── model/
-│ ├── service/
-│ ├── views/
-│ └── Main.java
+## 🧾 Database Schema
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE files (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_name VARCHAR(255),
+    path TEXT,
+    email VARCHAR(100)
+);
+
+
 
 ---
 
-## ⚙️ Setup Instructions
+How to Run
+🔧 Prerequisites
+Java 17
 
-### 🛑 Prerequisites
+MySQL installed and running
 
-- Java 8+ installed
-- Maven installed
-- MySQL server running
-- Gmail account for OTP emailing
+Gmail credentials (for sending OTP)
 
-### 🧪 Installation
+Maven
+ Setup Steps
+Clone or download the repository
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/FileHider.git
-cd FileHider
+Update your Gmail credentials in SendOTPService.java:
+Configure your MySQL connection in MyConnection.java
 
-# Compile the project
-mvn clean install
+Create the required tables in MySQL using the schema above
 
-# Run the app
-mvn exec:java -Dexec.mainClass="Main"
-Database Setup
-Create MySQL database file_hider_db
+Run the application:
 
-Update your DB credentials in MyConnection.java
+bash
+Copy
+Edit
+📸 Sample Flow
+Welcome to the app
+1. Login
+2. Signup
+0. Exit
 
-Run the SQL table script (if provided) or let the app handle it
-
-🎯 Usage
-Run the app
-
-Enter email → Receive OTP → Login
-
-Drag and drop files/folders into the interface
-
-Click on Hide File or Unhide File
-
+> Enter Email
+> OTP sent to email
+> File Hide/Unhide Menu appears after login
